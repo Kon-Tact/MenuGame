@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Test2</string>
+    <string name="app_name">MenuApp</string>
+    <string name="guess_button">GUESS</string>
+    <string name="re_rando_button">RE-RANDO</string>
+    <string name="back_button_plusoumoins">Retour</string>
+    <string name="back_button_morpion">Retour</string>
+    <string name="guess_textview">Devinez un chiffre entre 1 et 20</string>
+    <string name="hint_etguessnbr">Nombre entre 1 et 20</string>
+    <string name="plusoumoins_button">+ OU -</string>
+    <string name="morpion">MORPION</string>
+    <string name="info_morpion_textview">Désolé le jeu de morpion n&quot;est pas encore fonctionnel</string>
 </resources>

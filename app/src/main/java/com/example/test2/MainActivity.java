@@ -3,7 +3,6 @@ package com.example.test2;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,20 +15,14 @@ public class MainActivity extends AppCompatActivity {
         Button plusOuMoinsBtn = findViewById(R.id.plusOuMoinsBtn);
         Button morpionBtn = findViewById(R.id.morpionBtn);
 
-        plusOuMoinsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent itPlusOuMoins = new Intent(MainActivity.this, PlusOuMoins.class);
-                startActivity(itPlusOuMoins);
-            }
+        plusOuMoinsBtn.setOnClickListener(v -> {
+            Intent itPlusOuMoins = new Intent(MainActivity.this, PlusOuMoins.class);
+            startActivity(itPlusOuMoins);
         });
 
-        morpionBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent itMorpion = new Intent(MainActivity.this, Morpion.class);
-                startActivity(itMorpion);
-            }
+        morpionBtn.setOnClickListener(v -> {
+            Intent itMorpion = new Intent(MainActivity.this, Morpion.class);
+            startActivity(itMorpion);
         });
     }
 }
