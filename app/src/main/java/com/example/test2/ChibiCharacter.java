@@ -45,4 +45,49 @@ public class ChibiCharacter extends GameObject{
             this.bottomToTops[col] = this.createSubImageAt(ROW_BOTTOM_TO_TOP, col);
         }
     }
+
+    public Bitmap[] getMoveBitmaps() {
+        switch(rowUsing) {
+            case ROW_BOTTOM_TO_TOP:
+                return this.bottomToTops;
+            case ROW_LEFT_TO_RIGHT:
+                return this.leftToRights;
+            case ROW_RIGHT_TO_LEFT:
+                return this.rightToLefts;
+            case ROW_TOP_TO_BOTTOM:
+                return this.topToBottoms;
+            default :
+                return null;
+        }
+    }
+
+    public Bitmap getCurrentMoveBitmap() {
+        Bitmap[] bitmaps = this.getMoveBitmaps();
+        return bitmaps[this.colUsing];
+    }
+
+    public void update() {
+        this.colUsing++;
+        if (colUsing >= this.colCount) {
+            this.colUsing = 0;
+        }
+
+        //Current time in nanoseconds
+        long now = System.nanoTime();
+
+        //Never once did draw
+        if (lastDrawNanoTime == -1) {
+            lastDrawNanoTime = now;
+        }
+
+        int deltaTime = (int) ((now - lastDrawNanoTime)/1000000);
+
+        float distance = VELOCITY * deltaTime;
+
+        double movingVectorLength = Math.sqrt(movingVectorX * movingVectorX + movingVectorY * movingVectorY);
+
+        //Calculate the new position of the game character
+        this.x = x + (int)(distance * movingVectorX / movingVectorLength);
+        this.y = y + (int)(distance * movingVectorX / movingVectorLength);
+    }
 }
