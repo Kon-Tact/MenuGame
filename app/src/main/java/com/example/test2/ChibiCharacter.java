@@ -89,5 +89,26 @@ public class ChibiCharacter extends GameObject{
         //Calculate the new position of the game character
         this.x = x + (int)(distance * movingVectorX / movingVectorLength);
         this.y = y + (int)(distance * movingVectorX / movingVectorLength);
+
+        if(this.x < 0) {
+            this.x = 0;
+            this.movingVectorX = -this.movingVectorX;
+        } else if(this.x > this.gameSurface.getWidth()- width) {
+            this.x=this.gameSurface.getWidth() - width;
+            this.movingVectorX = -this.movingVectorX;
+        }
+
+        if(this.y < 0) {
+            this.y = 0;
+            this.movingVectorY = -this.movingVectorY;
+        } else if(this.y > this.gameSurface.getHeight()- height) {
+            this.y=this.gameSurface.getHeight() - height;
+            this.movingVectorY = -this.movingVectorY;
+        }
+
+        //rowUsing
+        if(movingVectorX > 0) {
+            if(movingVectorY > 0 && Math.abs)
+        }
     }
 }
