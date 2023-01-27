@@ -108,7 +108,33 @@ public class ChibiCharacter extends GameObject{
 
         //rowUsing
         if(movingVectorX > 0) {
-            if(movingVectorY > 0 && Math.abs)
+            if(movingVectorY > 0 && Math.abs(movingVectorX) < Math.abs(movingVectorY)) {
+                this.rowUsing = ROW_TOP_TO_BOTTOM;
+            } else if(movingVectorY < 0 && Math.abs(movingVectorX) < Math.abs(movingVectorY)) {
+                this.rowUsing = ROW_BOTTOM_TO_TOP;
+            } else {
+                this.rowUsing = ROW_LEFT_TO_RIGHT;
+            }
+        } else {
+            if (movingVectorY > 0 && Math.abs(movingVectorX) < Math.abs(movingVectorY)) {
+                this.rowUsing = ROW_TOP_TO_BOTTOM;
+            } else if(movingVectorY < 0 && Math.abs(movingVectorX) < Math.abs(movingVectorY)) {
+                this.rowUsing = ROW_BOTTOM_TO_TOP;
+            } else {
+                this.rowUsing = ROW_RIGHT_TO_LEFT;
+            }
         }
+    }
+
+    public void draw(Canvas canvas) {
+        Bitmap bitmap = this.getCurrentMoveBitmap();
+        canvas.drawBitmap(bitmap, x, y, null);
+        //Last draw time.
+        this.lastDrawNanoTime = System.nanoTime();
+    }
+
+    public void setMovingVector(int movingVectorX, int movingVectorY) {
+        this.movingVectorX = movingVectorX;
+        this.movingVectorY = movingVectorY;
     }
 }
