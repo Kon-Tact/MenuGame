@@ -9,4 +9,5 @@
     <string name="plusoumoins_button">+ OU -</string>
     <string name="morpion">MORPION</string>
     <string name="info_morpion_textview">Désolé le jeu de morpion n&quot;est pas encore fonctionnel</string>
+    <string name="minigame_btn">Mini Game</string>
 </resources>

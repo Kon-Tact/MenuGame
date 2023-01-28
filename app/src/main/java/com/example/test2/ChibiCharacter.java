@@ -1,6 +1,7 @@
 package com.example.test2;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 
 public class ChibiCharacter extends GameObject{
 

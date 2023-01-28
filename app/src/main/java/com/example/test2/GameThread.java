@@ -38,7 +38,27 @@ public class GameThread extends Thread{
                 }
             }
 
-            long now
+            long now = System.nanoTime();
+            //Interval to redraw the game
+            // (change nano to milli)
+            long waitTime = (now - startTime)/1000000;
+            if(waitTime < 10) {
+                waitTime = 10;
+            }
+            System.out.println("Wait Time = " + waitTime);
+
+            try {
+                //Sleep
+                this.sleep(waitTime);
+            } catch (InterruptedException e) {
+
+            }
+            startTime = System.nanoTime();
+            System.out.print(".");
         }
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
     }
 }

@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button plusOuMoinsBtn = findViewById(R.id.plusOuMoinsBtn);
         Button morpionBtn = findViewById(R.id.morpionBtn);
+        Button miniGameBtn = findViewById(R.id.miniGameBtn);
 
         plusOuMoinsBtn.setOnClickListener(v -> {
             Intent itPlusOuMoins = new Intent(MainActivity.this, PlusOuMoins.class);
@@ -23,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
         morpionBtn.setOnClickListener(v -> {
             Intent itMorpion = new Intent(MainActivity.this, Morpion.class);
             startActivity(itMorpion);
+        });
+
+        miniGameBtn.setOnClickListener(v -> {
+            Intent itMiniGame = new Intent(MainActivity.this, MiniGame.class);
+            startActivity(itMiniGame);
         });
     }
 }
